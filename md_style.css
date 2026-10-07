@@ -1,0 +1,450 @@
+/*
+ * Apple-style Markdown
+ *
+ * Designed to resemble Apple Support / Apple User Guide typography.
+ * Requires SF Pro installed on macOS.
+ */
+
+:root {
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --link: #06c;
+  --border: #d2d2d7;
+  --code-background: #ffcc00;
+
+  --body-font:
+    "SF Pro Text",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  --display-font:
+    "SF Pro Display",
+    "SF Pro Text",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  --mono-font:
+    "SF Mono",
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    monospace;
+}
+
+
+/* --------------------------------------------------
+   Document
+   -------------------------------------------------- */
+
+html {
+  font-family: var(--body-font);
+  font-size: 19px;
+  color: var(--text-primary);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  box-sizing: border-box;
+
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 22px 42px 100px;
+
+  font-family: var(--body-font);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.47;
+  letter-spacing: -0.012em;
+
+  color: var(--text-primary);
+  background: #fff;
+}
+
+
+/* --------------------------------------------------
+   Headings
+   -------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--display-font);
+  color: var(--text-primary);
+  font-style: normal;
+}
+
+h1 {
+  margin: 0 0 24px;
+
+  font-size: 48px;
+  line-height: 1.083;
+  font-weight: 400;
+  margin-bottom: 24px;
+  letter-spacing: -0.003em;
+}
+
+h2 {
+  margin: 48px 0 18px;
+
+  font-size: 32px;
+  line-height: 1.125;
+  font-weight: 600;
+  letter-spacing: 0.004em;
+}
+
+h3 {
+  margin: 38px 0 14px;
+
+  font-size: 24px;
+  line-height: 1.167;
+  font-weight: 600;
+  letter-spacing: 0.009em;
+}
+
+h4 {
+  margin: 30px 0 10px;
+
+  font-family: var(--body-font);
+  font-size: 21px;
+  line-height: 1.19;
+  font-weight: 600;
+  letter-spacing: 0.011em;
+}
+
+h5 {
+  margin: 26px 0 8px;
+
+  font-family: var(--body-font);
+  font-size: 19px;
+  line-height: 1.21;
+  font-weight: 600;
+}
+
+h6 {
+  margin: 24px 0 8px;
+
+  font-family: var(--body-font);
+  font-size: 17px;
+  line-height: 1.24;
+  font-weight: 600;
+
+  color: var(--text-secondary);
+}
+
+
+/* --------------------------------------------------
+   Paragraphs
+   -------------------------------------------------- */
+
+p {
+  margin: 0 0 20px;
+}
+
+h1 + p {
+  margin-top: 0;
+}
+
+
+/* --------------------------------------------------
+   Links
+   -------------------------------------------------- */
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+
+/* --------------------------------------------------
+   Strong / emphasis
+   -------------------------------------------------- */
+
+strong,
+b {
+  font-weight: 600;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+
+/* --------------------------------------------------
+   Lists
+   -------------------------------------------------- */
+
+ul,
+ol {
+  margin: 18px 0 26px;
+  padding-left: 2.15em;
+}
+
+li {
+  margin: 10px 0;
+  padding-left: 0.15em;
+  line-height: 1.47;
+}
+
+/*
+ * Apple's documentation often gives ordered-list items
+ * considerably more breathing room.
+ */
+ol > li {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+li > p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+
+/* --------------------------------------------------
+   Blockquote
+   -------------------------------------------------- */
+
+blockquote {
+  margin: 28px 0;
+  padding: 2px 0 2px 22px;
+
+  color: var(--text-secondary);
+
+  border-left: 4px solid var(--border);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Inline code */
+
+code {
+  font-family: var(--mono-font);
+  font-size: 0.84em;
+  font-weight: 400;
+
+  padding: 0.08em 0.28em;
+
+  color: #333336;
+  background: rgba(0, 0, 0, 0.055);
+
+  border-radius: 4px;
+
+  letter-spacing: -0.015em;
+}
+
+
+/* Code blocks */
+
+pre {
+  margin: 30px 0;
+  padding: 22px 24px;
+
+  overflow-x: auto;
+
+  font-family: var(--mono-font);
+  font-size: 15px;
+  line-height: 1.55;
+
+  color: #1d1d1f;
+  background: #f5f5f7;
+
+  border-radius: 12px;
+
+  tab-size: 4;
+}
+
+pre code {
+  padding: 0;
+
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+
+  color: inherit;
+  background: transparent;
+
+  border-radius: 0;
+}
+
+
+/* --------------------------------------------------
+   Horizontal rule
+   -------------------------------------------------- */
+
+hr {
+  height: 1px;
+
+  margin: 48px 0;
+
+  background: var(--border);
+
+  border: 0;
+}
+
+
+/* --------------------------------------------------
+   Tables
+   -------------------------------------------------- */
+
+table {
+  width: 100%;
+
+  margin: 28px 0 36px;
+
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  font-size: 17px;
+  line-height: 1.47;
+}
+
+th,
+td {
+  padding: 11px 14px;
+
+  text-align: left;
+  vertical-align: top;
+
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  font-weight: 600;
+}
+
+
+/* --------------------------------------------------
+   Images
+   -------------------------------------------------- */
+
+img {
+  display: block;
+
+  max-width: 100%;
+  height: auto;
+
+  margin: 30px auto;
+}
+
+
+/* --------------------------------------------------
+   Keyboard keys
+   -------------------------------------------------- */
+
+kbd {
+  display: inline-block;
+
+  padding: 2px 6px;
+
+  font-family: var(--body-font);
+  font-size: 0.82em;
+
+  background: #f5f5f7;
+  border: 1px solid #d2d2d7;
+  border-radius: 5px;
+
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+}
+
+
+/* --------------------------------------------------
+   Definition / supplementary text
+   -------------------------------------------------- */
+
+small {
+  font-size: 15px;
+  line-height: 1.4;
+
+  color: var(--text-secondary);
+}
+
+
+/* --------------------------------------------------
+   Responsive layout
+   -------------------------------------------------- */
+
+@media (max-width: 734px) {
+  html {
+    font-size: 17px;
+  }
+
+  body {
+    padding: 36px 22px 72px;
+  }
+
+  h1 {
+    font-size: 40px;
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 23px;
+  }
+}
+
+
+/* --------------------------------------------------
+   Printing
+   -------------------------------------------------- */
+
+@media print {
+  body {
+    max-width: none;
+    padding: 0;
+
+    font-size: 11pt;
+
+    color: #000;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  pre,
+  code {
+    background: #f5f5f5;
+  }
+}
